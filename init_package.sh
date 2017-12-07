@@ -28,7 +28,7 @@ mv mb_sample_package.Jenkinsfile "$PACKAGE_NAME.Jenkinsfile"
 
 # Search through all of the other files in this directory and find/replace to update the name
 THIS_FILE=$(basename "$0")
-find . -maxdepth 1 -type f -not -name "$THIS_FILE" -exec sed -i'' -e "s,mb_sample_package,$PACKAGE_NAME,g" {} \+
+find . -maxdepth 1 -type f -not -name "$THIS_FILE" -exec sed -i '' -e "s,mb_sample_package,$PACKAGE_NAME,g" {} \+
 
 # Make sure the user knows we're about to remove this script now.
 echo "Press ENTER to finish cleaning up and remove this script."
