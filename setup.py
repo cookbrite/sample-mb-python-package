@@ -83,7 +83,7 @@ with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
 version = None
 with open(os.path.join(module_path, '__init__.py')) as file:
     for line in file:
-        m = re.search(r'__version__\s*=\s*(.+?\n)', line)
+        m = re.search(r'\b(?:__version__|VERSION)\b\s*=\s*(.+?\n)', line)
         if m:
             version = eval(m.group(1))
             break
