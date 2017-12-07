@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-"""A setuptools based setup module.
+"""
+A setuptools based setup module.
 
 See:
 https://packaging.python.org/en/latest/distributing.html
@@ -14,18 +15,44 @@ from codecs import open
 import os
 import re
 
-# To build cython+numpy packages properly on osx, we need this to get its
-# includefile path.  It also means that there is no automated way to install
-# numpy and building this package will fail if you do not already have it.
+# To build cython+numpy packages properly on osx, we need this here to get its
+# includefile path for make_ext_modules().  Unfortunately, this also means
+# that there is no automated way to install numpy and running `setup.py` will
+# fail if you do not already have it installed.
 import numpy
 
-# Package configuration should all be defined here for easy access:
+
+# Package configuration should all be defined here for easy access.
+# Update these values as best fits your particular package.
 
 name = 'mb_sample_package'
 
+description = 'MetaBrite Sample Package.'
+
+author = 'MetaBrite, Inc.'
+
+author_email = 'metabrite@example.com'
+
+url = 'https://github.com/cookbrite/mb_sample_package'
+
+license = 'Proprietary License'
+
+keywords = 'metabrite'
+
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'Topic :: Software Development :: Build Tools',
+    'License :: Other/Proprietary License',
+    'Programming Language :: Python :: 2',
+    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.6',
+]
+
 setup_requires = (
     # CHANGEME: By default, we assume you will want to eventually use cython and nummpy.
-    # CHANGEME: Comment these out if you don't need them.
+    # CHANGEME: If you don't need them, you can comment them out here, above, and in tox.ini
     'cython',
     'numpy',
 )
@@ -64,7 +91,10 @@ assert version is not None, "Couldn't find version string."
 
 
 def make_ext_modules():
-    """ Walk the module tree looking for cython files and return a list of Extensions() from them """
+    """
+    Walk the module tree looking for cython files and return a list of Extensions() from them.
+    See: http://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html
+    """
     extensions = []
     if 'cython' in setup_requires:
         cur_dir = os.getcwd()
@@ -97,29 +127,17 @@ def make_ext_modules():
 setup(
     name=name,
     version=version,
-
-    description='MetaBrite Sample Package.',
-    author='MetaBrite, Inc.',
-    author_email='metabrite@example.com',
-    url='https://github.com/cookbrite/mb_sample_package',
-    license='Proprietary License',
-    classifiers=[
-        'Development Status :: 5 - Production/Stable',
-        'Intended Audience :: Developers',
-        'Topic :: Software Development :: Build Tools',
-        'License :: Other/Proprietary License',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-    ],
-    keywords='metabrite',
+    description=description,
+    author=author,
+    author_email=author_email,
+    url=url,
+    license=license,
+    classifiers=classifiers,
+    keywords=keywords,
 
     setup_requires=setup_requires,
 
     # Specify the specific modules that cython should compile
-    # See: http://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html
     ext_modules=make_ext_modules(),
 
     # This package only installs its base module, and a bunch of dependencies
@@ -129,8 +147,8 @@ setup(
 
     # In order to keep tox *and* setup happy, we need to define the test requirements twice...
     extras_require={
-        'test': tests_require + install_requires,
+        'test': tests_require,
     },
-    tests_require=tests_require + install_requires,
-    test_suite="py.test",
+    tests_require=tests_require,
+    test_suite='py.test',
 )
