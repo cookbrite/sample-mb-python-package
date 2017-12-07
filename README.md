@@ -26,6 +26,7 @@ been included as `LICENSE`.
 * If you are **not** creating an internal package for MetaBrite, you should delete
   `LICENSE.metabrite`.
 * Run `init_package.sh` to propagate your own package's name where it needs to go.
+* Remove the contents of the README and replace with your own documentation or placeholders.
 
 # Additional Setup
 
