@@ -33,4 +33,5 @@ been included as `LICENSE`.
 * `setup.py` contains a section at the top containing more than a few fields that
   are currently hard-coded to values specific to MetaBrite.  You should probably
   change these.
- 
+* The `tox.ini` config is set up for MetaBrite's most common test scenarios,
+  including building with cython.  You may not need all of it.
