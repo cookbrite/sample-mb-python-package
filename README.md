@@ -27,12 +27,12 @@ been included as `LICENSE`.
   `LICENSE.metabrite`.
 * Run `init_package.sh` to propagate your own package's name where it needs to go.
 * Remove the contents of the README and replace with your own documentation or placeholders.
+* `setup.py` contains a section at the top containing more than a few fields that
+  are currently hard-coded to values specific to MetaBrite.  You should probably
+  change these.
 
 # Additional Setup
 
 * [License your package](https://help.github.com/articles/licensing-a-repository/)
-* `setup.py` contains a section at the top containing more than a few fields that
-  are currently hard-coded to values specific to MetaBrite.  You should probably
-  change these.
 * The `tox.ini` config is set up for MetaBrite's most common test scenarios,
   including building with cython.  You may not need all of it.
