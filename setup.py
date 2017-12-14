@@ -74,6 +74,11 @@ entry_points = {
     # ],
 }
 
+# Setting this to true will make sure any binaries in MANIFEST.in
+# get included with the package when it is distributed.
+# See: http://setuptools.readthedocs.io/en/latest/setuptools.html#including-data-files
+include_package_data = True
+
 ################################################
 # Please try not to touch things below this line
 ################################################
@@ -175,6 +180,7 @@ setup(
 
     # This package only installs its base module, and a bunch of dependencies
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
+    include_package_data=include_package_data,
 
     install_requires=install_requires,
     dependency_links=dependency_links,
