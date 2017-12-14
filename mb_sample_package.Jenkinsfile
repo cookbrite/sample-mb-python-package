@@ -1,11 +1,9 @@
 #! groovy
 
-#
-# This Jenkinsfile is provided as an example of how MetaBrite builds packages
-# based on this sample.  It references a handful of internal tools, so you
-# will need to make your own modifications if you wish to use it in your own
-# build pipeline.
-#
+// This Jenkinsfile is provided as an example of how MetaBrite builds packages
+// based on this sample.  It references a handful of internal tools, so you
+// will need to make your own modifications if you wish to use it in your own
+// build pipeline.
 
 package com.metabrite
 
