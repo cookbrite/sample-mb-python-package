@@ -3,6 +3,10 @@
 This repository contains the code and instructions MetaBrite uses to create
 our internally-used python packages.
 
+# Deprecated
+
+This repository is now deprecated and has been replaced by the **[xBrite Sample Python Package](https://github.com/xBrite/sample-python-package)**.  Please use that one instead.
+
 # License
 
 The `LICENSE.metabrite` file included in this repository is intended for use
